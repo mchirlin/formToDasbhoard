@@ -1,0 +1,131 @@
+<appian-plugin name="AppianSystemTools" key="com.appiancorp.ps.plugins.systemtools">
+
+  <plugin-info>
+    <description>Appian System Tools</description>
+    <vendor name="Appian Corporation" url="http://www.appian.com"/>
+    <version>2.0.0</version>
+    <application-version min="6.6.1"/>
+  </plugin-info>
+
+  <!-- ********* Server Log File Tools ********* -->
+  <function key="SystemToolsFunctions" class="com.appiancorp.ps.plugins.systemtools.SystemToolsFunctions"/>
+
+  <smart-service name="Generate Log Files" key="getlogfilesmartservice_v6"
+    class="com.appiancorp.ps.plugins.systemtools.GetLogFileSmartService"/>
+
+  
+  <!-- ********* Process Model Settings Tools ********* -->
+  <datatype key="ProcessModelSettings" name="Process Model Settings Data Type">
+    <class>com.appiancorp.ps.plugins.systemtools.ProcessModelSettings</class>
+  </datatype>
+
+  <enumeration key="CLEANUPTYPE" type="1">
+    <items>
+      <item>
+        <label>System Default</label>
+        <detail>Set Cleanup Settings to System Default</detail>
+        <value>3</value>
+        <default>3</default>
+      </item>
+      <item>
+        <label>Auto Archive</label>
+        <detail>Automatically Archive after X days</detail>
+        <value>1</value>
+        <default>3</default>
+      </item>
+      <item>
+        <label>Auto Delete</label>
+        <detail>Automatically Delete after X days</detail>
+        <value>2</value>
+        <default>3</default>
+      </item>
+      <item>
+        <label>No Cleanup</label>
+        <detail>Do not Archive or Delete</detail>
+        <value>0</value>
+        <default>3</default>
+      </item>
+    </items>
+  </enumeration>
+
+  <smart-service name="Get Process Model Information" key="GetProcessModelInformation"
+    class="com.appiancorp.ps.plugins.systemtools.GetProcessModelsSettings"/>
+
+  <smart-service name="Set Process Model Information" key="SetProcessModelInformation"
+    class="com.appiancorp.ps.plugins.systemtools.SetProcessModelsSettings"/>
+  
+  
+  <!--  ********* Get Components from Application Zip Tool ********* -->
+  <datatype key="Component" name="Application Component Data Type">
+    <class>com.appiancorp.ps.plugins.systemtools.Component</class>
+  </datatype>
+
+  <smart-service name="Get Application Components" key="GetApplicationComponents"
+    class="com.appiancorp.ps.plugins.systemtools.GetApplicationComponents"/>
+
+  
+  <!-- ********* Identify Applications Containing Object Tool ********* -->
+  <enumeration key="appian-type" type="1">
+    <items>
+      <item>
+        <label>Community</label>
+        <detail>Community</detail>
+        <value>20</value>
+      </item>
+      <item>
+        <label>Constant</label>
+        <detail>Constant</detail>
+        <value>40</value>
+      </item>
+      <!-- Removing since it is not working right now <item> <label>Datatype</label> <detail>Datatype</detail> 
+        <value>80</value> </item> -->
+      <item>
+        <label>Document</label>
+        <detail>Document</detail>
+        <value>13</value>
+      </item>
+      <item>
+        <label>Folder</label>
+        <detail>Folder</detail>
+        <value>12</value>
+      </item>
+      <item>
+        <label>Group</label>
+        <detail>Group</detail>
+        <value>5</value>
+      </item>
+      <item>
+        <label>Group Type</label>
+        <detail>Group Type</detail>
+        <value>41</value>
+      </item>
+      <item>
+        <label>Knowledge Center</label>
+        <detail>Knowledge Center</detail>
+        <value>19</value>
+      </item>
+      <item>
+        <label>Page</label>
+        <detail>Page</detail>
+        <value>15</value>
+      </item>
+      <item>
+        <label>Process Model</label>
+        <detail>Process Model</detail>
+        <value>23</value>
+      </item>
+      <item>
+        <label>Rule</label>
+        <detail>Rule</detail>
+        <value>36</value>
+      </item>
+    </items>
+  </enumeration>
+      
+  <smart-service name="Identify Apps Containing Object" key="IdentifyApplicationsContainingObject"
+    class="com.appiancorp.ps.plugins.systemtools.IdentifyApplicationsContainingObject"/>
+  
+  <smart-service name="Form to Dashboard" key="FormToDashboard"
+    class="com.appiancorp.ps.plugins.systemtools.FormToDashboard"/> 
+      
+</appian-plugin>
